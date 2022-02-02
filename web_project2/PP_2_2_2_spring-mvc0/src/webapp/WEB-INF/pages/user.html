@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+<body>
+<div>
+    Name : <a th:text=" ${user.getFirstName()}"></a>
+    <br/>
+
+    <form th:action="${user.getId()}" th:method="POST">
+        <input th:name="new_username" type="text">
+        <br/>
+        <button>update name</button>
+        <br/>
+    </form>
+
+
+    <a th:href="@{delete/{id}(id = ${user.getId()})}">delete user</a>
+
+
+
+    </br>
+
+    <a href="/spring_mvc_war_exploded">Back ty menu</a>
+
+
+
+</div>
+</body>
+</html>
+
+
+
+
+

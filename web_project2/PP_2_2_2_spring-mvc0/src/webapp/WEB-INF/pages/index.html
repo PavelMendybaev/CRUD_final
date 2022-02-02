@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+<body>
+<div>
+    <form th:action="@{/}"  th:method="POST" >
+        <label>please Add user</label>
+        <div><input class="fo" type="text" th:name="username"  /></div>
+        <div><input type="submit" value="Add user"/></div>
+    </form>
+
+    <br/>
+    <p>click on the user to change</p>
+    <br/>
+
+    <th:block th:each="user : ${users}">
+        <a th:href="${user.getId()}"  th:text="${user.getFirstName()}"></a>
+        <br/>
+    </th:block>
+</div>
+</body>
+</html>
