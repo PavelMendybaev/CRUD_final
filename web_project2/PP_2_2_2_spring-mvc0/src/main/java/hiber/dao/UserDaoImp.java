@@ -27,8 +27,8 @@ public class UserDaoImp implements UserDao {
    @Override
    @SuppressWarnings("unchecked")
    public List<User> listUsers() {
-      List<User> users = em.createQuery("from User ").getResultList();
-      return users;
+
+      return  em.createQuery("from User ").getResultList();
    }
 
    @Override
@@ -50,8 +50,7 @@ public class UserDaoImp implements UserDao {
    @Override
    @Transactional
    public void delete(long id) {
-      User user = getId(id);
-      em.remove(user);
+      em.createQuery("delete from User where id = :id").setParameter("id" , id).executeUpdate();
    }
 
 
